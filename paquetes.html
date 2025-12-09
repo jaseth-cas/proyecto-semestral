@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetes - Descubre Penonomé</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar responsive con menú hamburguesa -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain"></i>
+                Descubre Coclé
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="paquetes.html" class="nav-link active">Paquetes</a></li>
+                <li><a href="juego.html" class="nav-link">Juego</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="#" id="logoutBtn" class="nav-link">Cerrar sesión</a></li>
+
+                <li>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header de página con imagen de fondo -->
+    <section class="page-header">
+        <div class="page-header-overlay">
+            <h1>Nuestros Paquetes Turísticos</h1>
+            <p>Experiencias únicas diseñadas para cada tipo de aventurero</p>
+        </div>
+    </section>
+
+    <!-- Contenido principal de paquetes -->
+    <main class="main-content">
+        <h2 class="section-title">Paquetes Turísticos Exclusivos</h2>
+        
+        
+        <div class="packages-grid" id="packagesGrid"></div>
+
+        <!-- Sección de información adicional -->
+        <section class="packages-info">
+            <h2 class="section-title">¿Qué Incluyen Nuestros Paquetes?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Transporte</h3>
+                    <p>Vehículos cómodos y seguros con aire acondicionado desde tu hotel.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Guías Expertos</h3>
+                    <p>Profesionales bilingües con amplio conocimiento de la región.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Alimentación</h3>
+                    <p>Comidas típicas y refrigerios incluidos según el paquete.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Seguro</h3>
+                    <p>Cobertura completa durante toda tu aventura con nosotros.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito de compras lateral -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #6b7280; padding: 2rem;">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <a href="carrito.html" class="checkout-btn" style="display:block; text-align:center;">
+             Finalizar Compra
+            </a>
+        </div>
+    </div>
+
+    <!-- Chatbot flotante -->
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Asistente Virtual</span>
+                <button class="close-cart" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">¡Hola! Soy tu asistente virtual. ¿Te ayudo a elegir un paquete?</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button class="send-button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Footer profesional -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Descubre Penonomé</h3>
+                <p style="color: #9ca3af; line-height: 1.8;">Tu puerta de entrada a las maravillas naturales y culturales del corazón de Panamá. Experiencias auténticas desde 2010.</p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="paquetes.html">Paquetes</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="juego.html">Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Penonomé, Coclé, Panamá</li>
+                    <li><i class="fas fa-phone"></i> +507 6789-0123</li>
+                    <li><i class="fas fa-envelope"></i> info@descubrepenonome.com</li>
+                    <li><i class="fas fa-clock"></i> Lun - Dom: 7am - 9pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Suscríbete para recibir ofertas exclusivas</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Tu email" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px;">
+                    <button style="background: var(--accent); color: var(--white); border: none; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Descubre Coclé. Todos los derechos reservados. | Diseñado con ❤️ para aventureros</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="script.js"></script>
+
+</body>
+</html>

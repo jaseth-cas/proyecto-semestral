@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Descubre Panamá</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar responsive con menú hamburguesa -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo principal - enlace a inicio -->
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain"></i>
+                Descubre Coclé
+            </a>
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                <li><a href="paquetes.html" class="nav-link">Paquetes</a></li>
+                <li><a href="juego.html" class="nav-link">Juego</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="#" id="logoutBtn" class="nav-link">Cerrar sesión</a></li>
+                <!-- Icono de carrito con contador -->
+                <li>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+            <!-- Botón hamburguesa para móviles -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal de bienvenida inicial -->
+    <div class="welcome-modal" id="welcomeModal">
+        <div class="modal-content">
+            <i class="fas fa-umbrella-beach" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
+            <h2>¡Bienvenido a Descubre Coclé!</h2>
+            <p>Tu aventura por las maravillas de Panamá comienza aquí. Explora paisajes increíbles, experiencias auténticas y paquetes diseñados para ti.</p>
+            <button class="close-modal" id="closeWelcome">Comenzar Aventura</button>
+        </div>
+    </div>
+
+    <!-- Hero section con slider automático de imágenes -->
+    <section class="hero" id="inicio">
+        <div class="slider" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop" alt="Montañas de Coclé">
+                <div class="slide-overlay">
+                    <h1>Destinos Imperdibles<br>Para Vacacionar</h1>
+                    <p>Te contamos sobre algunos destinos emblemáticos de Panamá</p>
+                    <a href="paquetes.html" class="hero-button">Recorre Panamá Aquí</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&h=900&fit=crop" alt="Naturaleza de Coclé">
+                <div class="slide-overlay">
+                    <h1>Naturaleza Pura<br>Te Espera</h1>
+                    <p>Cascadas, montañas y aventuras que transformarán tu vida</p>
+                    <a href="paquetes.html" class="hero-button">Explorar Destinos</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&h=900&fit=crop" alt="Playa de Coclé">
+                <div class="slide-overlay">
+                    <h1>Playas Paradisíacas<br>de Coclé</h1>
+                    <p>Arena dorada y aguas cristalinas del Pacífico panameño</p>
+                    <a href="paquetes.html" class="hero-button">Ver Paquetes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido de inicio -->
+    <main class="main-content">
+        <!-- Sección de presentación -->
+        <section class="intro-section">
+            <h2 class="section-title">Bienvenido a Penonomé</h2>
+            <div class="intro-content">
+                <p>Penonomé, la capital de la provincia de Coclé, es el corazón cultural y natural de Panamá. Con una rica historia colonial, paisajes montañosos impresionantes y playas vírgenes del Pacífico, este destino te ofrece experiencias únicas que combinarán aventura, cultura y relajación.</p>
+                <p>Desde el místico Valle de Antón, ubicado en el cráter de un volcán extinto, hasta las cascadas escondidas en la selva tropical, cada rincón de Penonomé cuenta una historia. Nuestros paquetes turísticos están diseñados para que vivas lo mejor de esta región con total comodidad y seguridad.</p>
+            </div>
+        </section>
+
+        <!-- Destacados rápidos -->
+        <section class="highlights-section">
+            <h2 class="section-title">¿Por Qué Visitar Penonomé?</h2>
+            <div class="highlights-grid">
+                <!-- Destacado 1 -->
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Naturaleza">
+                    </div>
+                    <div class="highlight-info">
+                        <i class="fas fa-mountain"></i>
+                        <h3>Naturaleza Inigualable</h3>
+                        <p>Montañas, cascadas, ríos y bosques tropicales te esperan para vivir la aventura de tu vida.</p>
+                    </div>
+                </div>
+                <!-- Destacado 2 -->
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600&h=400&fit=crop" alt="Cultura">
+                    </div>
+                    <div class="highlight-info">
+                        <i class="fas fa-church"></i>
+                        <h3>Riqueza Cultural</h3>
+                        <p>Iglesias coloniales, mercados tradicionales y artesanías auténticas de la región.</p>
+                    </div>
+                </div>
+                <!-- Destacado 3 -->
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&h=400&fit=crop" alt="Playas">
+                    </div>
+                    <div class="highlight-info">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <h3>Playas Vírgenes</h3>
+                        <p>Costa del Pacífico con playas de arena dorada y aguas cristalinas perfectas para relajarse.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>¿Listo para tu próxima aventura?</h2>
+                <p>Explora nuestros paquetes turísticos exclusivos diseñados para cada tipo de viajero</p>
+                <a href="paquetes.html" class="cta-button">Ver Paquetes Turísticos</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito de compras lateral (sidebar) -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <!-- Header del carrito -->
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <!-- Lista de items en el carrito -->
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #6b7280; padding: 2rem;">Tu carrito está vacío</p>
+        </div>
+        <!-- Footer con total y botón de checkout -->
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Chatbot flotante -->
+    <div class="chatbot-container">
+        <!-- Ventana de chat -->
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Asistente Virtual</span>
+                <button class="close-cart" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <!-- Mensajes del chat -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">¡Hola! Soy tu asistente virtual de Descubre Penonomé. ¿En qué puedo ayudarte?</div>
+            </div>
+            <!-- Input para escribir mensajes -->
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button class="send-button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <!-- Botón para abrir el chat -->
+        <button class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Footer profesional con múltiples columnas -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Columna 1: Información de la empresa -->
+            <div class="footer-section">
+                <h3>Descubre Panamá</h3>
+                <p style="color: #9ca3af; line-height: 1.8;">Tu puerta de entrada a las maravillas naturales y culturales del corazón de Panamá. Experiencias auténticas desde 2010.</p>
+                <!-- Enlaces a redes sociales -->
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <!-- Columna 2: Enlaces rápidos -->
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="paquetes.html">Paquetes</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="juego.html">Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#" id="logoutBtn" class="nav-link">Cerrar sesión</a></li>
+                </ul>
+            </div>
+            <!-- Columna 3: Información de contacto -->
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Penonomé, Coclé, Panamá</li>
+                    <li><i class="fas fa-phone"></i> +507 6789-0123</li>
+                    <li><i class="fas fa-envelope"></i> info@descubrepenonomé.com</li>
+                    <li><i class="fas fa-clock"></i> Lun - Dom: 7am - 9pm</li>
+                </ul>
+            </div>
+            <!-- Columna 4: Newsletter -->
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Suscríbete para recibir ofertas exclusivas</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Tu email" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px;">
+                    <button style="background: var(--accent); color: var(--white); border: none; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Descubre Coclé. Todos los derechos reservados. | Diseñado con ❤️ para aventureros</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="script.js"></script>
+    <script>
+    if (localStorage.getItem("rol") !== "user") {
+        window.location.href = "login.html";
+    }
+</script>
+
+
+</body>
+</html>

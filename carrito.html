@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Descubre Penonomé</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar responsive con menú hamburguesa -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo principal - enlace a inicio -->
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain"></i>
+                Descubre Coclé
+            </a>
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="paquetes.html" class="nav-link">Paquetes</a></li>
+                <li><a href="juego.html" class="nav-link">Juego</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <!-- Icono de carrito con contador -->
+                <li>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+            <!-- Botón hamburguesa para móviles -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header de página -->
+    <section class="page-header cart-page-header">
+        <div class="page-header-overlay">
+            <h1><i class="fas fa-shopping-cart"></i> Tu Carrito de Compras</h1>
+            <p>Revisa tus paquetes seleccionados antes de finalizar tu reserva</p>
+        </div>
+    </section>
+
+    <!-- Contenido principal del carrito -->
+    <main class="main-content">
+        <div class="cart-page-container">
+            <!-- Columna izquierda: Items del carrito -->
+            <div class="cart-items-section">
+                <div class="cart-section-header">
+                    <h2><i class="fas fa-list"></i> Paquetes Seleccionados</h2>
+                    <button class="clear-cart-btn" onclick="clearCart()">
+                        <i class="fas fa-trash"></i> Vaciar Carrito
+                    </button>
+                </div>
+
+                <!-- Container de items del carrito -->
+                <div id="cartItemsContainer" class="cart-items-list">
+                    <!-- Los items se cargan dinámicamente desde JavaScript -->
+                </div>
+
+                <!-- Mensaje cuando el carrito está vacío -->
+                <div id="emptyCartMessage" class="empty-cart-message">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>Agrega paquetes turísticos increíbles para comenzar tu aventura</p>
+                    <a href="paquetes.html" class="continue-shopping-btn">
+                        <i class="fas fa-search"></i> Ver Paquetes Disponibles
+                    </a>
+                </div>
+
+                <!-- Botón continuar comprando -->
+                <div class="continue-shopping-section">
+                    <a href="paquetes.html" class="continue-shopping-link">
+                        <i class="fas fa-arrow-left"></i> Continuar Comprando
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna derecha: Resumen de facturación -->
+            <div class="cart-summary-section">
+                <div class="cart-summary-card">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Resumen de Compra</h3>
+                    
+                    <!-- Desglose de precios -->
+                    <div class="summary-row">
+                        <span>Subtotal (<span id="summaryItemCount">0</span> paquetes):</span>
+                        <span id="summarySubtotal">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>ITBMS (7%):</span>
+                        <span id="summaryTax">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Cargo por servicio:</span>
+                        <span id="summaryService">$25.00</span>
+                    </div>
+                    
+                    <!-- Cupón de descuento -->
+                    <div class="coupon-section">
+                        <input type="text" id="couponInput" placeholder="Código de cupón" class="coupon-input">
+                        <button class="apply-coupon-btn" onclick="applyCoupon()">
+                            <i class="fas fa-tag"></i> Aplicar
+                        </button>
+                    </div>
+                    
+                    <div class="summary-row discount-row" id="discountRow" style="display: none;">
+                        <span>Descuento <span id="discountCode"></span>:</span>
+                        <span id="summaryDiscount">-$0.00</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <!-- Total final -->
+                    <div class="summary-row total-row">
+                        <span>Total a Pagar:</span>
+                        <span id="summaryTotal">$0.00</span>
+                    </div>
+                    
+                    <!-- Botón de checkout -->
+                    <button class="checkout-page-btn" onclick="processCheckout()" id="checkoutBtn">
+                        <i class="fas fa-credit-card"></i> Proceder al Pago
+                    </button>
+                    
+                    <!-- Métodos de pago aceptados -->
+                    <div class="payment-methods">
+                        <p>Métodos de pago aceptados:</p>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                            <i class="fab fa-paypal"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Garantía -->
+                    <div class="guarantee-section">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>Compra 100% Segura</strong>
+                            <p>Tus datos están protegidos con encriptación SSL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información adicional -->
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <h4>Información Importante</h4>
+                    <ul>
+                        <li>Confirmación inmediata por email</li>
+                        <li>Cancelación gratuita hasta 7 días antes</li>
+                        <li>Soporte 24/7 durante tu viaje</li>
+                        <li>Seguro de viaje incluido</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chatbot flotante -->
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Asistente Virtual</span>
+                <button class="close-cart" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">¿Necesitas ayuda con tu compra? ¡Estoy aquí!</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button class="send-button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Footer profesional -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Descubre Penonomé</h3>
+                <p style="color: #9ca3af; line-height: 1.8;">Tu puerta de entrada a las maravillas naturales y culturales del corazón de Panamá. Experiencias auténticas desde 2010.</p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="paquetes.html">Paquetes</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="juego.html">Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Penonomé, Coclé, Panamá</li>
+                    <li><i class="fas fa-phone"></i> +507 6789-0123</li>
+                    <li><i class="fas fa-envelope"></i> info@descubrepenonomé.com</li>
+                    <li><i class="fas fa-clock"></i> Lun - Dom: 7am - 9pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Suscríbete para recibir ofertas exclusivas</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Tu email" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px;">
+                    <button style="background: var(--accent); color: var(--white); border: none; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Descubre Coclé. Todos los derechos reservados. | Diseñado con ❤️ para aventureros</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="script.js"></script>
+    <!-- Script específico para la página del carrito -->
+    <script>
+        // Carga los items del carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCartPage();
+            updateCartSummary();
+        });
+    </script>
+</body>
+</html>

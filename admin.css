@@ -1,0 +1,84 @@
+/* Hereda estilos base */
+@import url('styles.css');
+
+/* ----- FORMULARIO ----- */
+.admin-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    margin-bottom: 2rem;
+}
+
+.admin-form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.admin-form input,
+.admin-form textarea {
+    width: 100%;
+    padding: .8rem;
+    margin-top: .4rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.checkout-btn {
+    margin-top: 1rem;
+}
+
+/* ----- LISTA DE PAQUETES ----- */
+
+.admin-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.admin-card h3 {
+    margin: .6rem 0;
+}
+
+.btn-group {
+    display: flex;
+    gap: .5rem;
+    margin-top: .8rem;
+}
+
+.btn-edit {
+    background: #3b82f6;
+    color: white;
+    padding: .5rem .8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+    padding: .5rem .8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Descubre Coclé</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar responsive con menú hamburguesa -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo principal - enlace a inicio -->
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain"></i>
+                Descubre Coclé
+            </a>
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="paquetes.html" class="nav-link">Paquetes</a></li>
+                <li><a href="juego.html" class="nav-link">Juego</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+               <li><a href="#" id="logoutBtn" class="nav-link">Cerrar sesión</a></li>
+                <!-- Icono de carrito con contador -->
+                <li>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+            <!-- Botón hamburguesa para móviles -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header de página -->
+    <section class="page-header contact-header">
+        <div class="page-header-overlay">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para ayudarte a planificar tu próxima aventura</p>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Sección de información de contacto -->
+        <section class="contact-info-section">
+            <h2 class="section-title">¿Cómo Podemos Ayudarte?</h2>
+            <div class="contact-info-grid">
+                <!-- Tarjeta de ubicación -->
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visítanos</h3>
+                    <p>Avenida Juan Demóstenes Arosemena</p>
+                    <p>Penonomé, Coclé, Panamá</p>
+                </div>
+                <!-- Tarjeta de teléfono -->
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Llámanos</h3>
+                    <p>+507 6789-0123</p>
+                    <p>+507 9876-5432</p>
+                </div>
+                <!-- Tarjeta de email -->
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Escríbenos</h3>
+                    <p>info@descubrepenonomé.com</p>
+                    <p>reservas@descubrepenonomé.com</p>
+                </div>
+                <!-- Tarjeta de horario -->
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Horario</h3>
+                    <p>Lunes a Viernes: 7am - 9pm</p>
+                    <p>Sábado y Domingo: 8am - 8pm</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección del formulario de contacto -->
+        <section class="contact-form-section">
+            <div class="contact-container">
+                <!-- Formulario -->
+                <div class="form-wrapper">
+                    <h2 class="section-title">Envíanos un Mensaje</h2>
+                    <p class="form-description">Completa el formulario y nos pondremos en contacto contigo lo antes posible</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <!-- Campo nombre -->
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+                            <span class="error-message" id="nombreError">Por favor ingresa tu nombre completo</span>
+                        </div>
+                        
+                        <!-- Campo email -->
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+                            <span class="error-message" id="emailError">Por favor ingresa un email válido</span>
+                        </div>
+                        
+                        <!-- Campo teléfono -->
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+507 1234-5678">
+                            <span class="error-message" id="telefonoError">Por favor ingresa tu teléfono</span>
+                        </div>
+                        
+                        <!-- Campo asunto -->
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="reserva">Reserva de paquete</option>
+                                <option value="informacion">Solicitud de información</option>
+                                <option value="cotizacion">Cotización personalizada</option>
+                                <option value="sugerencia">Sugerencia o comentario</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <span class="error-message" id="asuntoError">Por favor selecciona un asunto</span>
+                        </div>
+                        
+                        <!-- Campo mensaje -->
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                            <span class="error-message" id="mensajeError">Por favor ingresa tu mensaje (mínimo 10 caracteres)</span>
+                        </div>
+                        
+                        <!-- Checkbox de términos -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terminos" required>
+                                <span>Acepto la política de privacidad y el tratamiento de mis datos</span>
+                            </label>
+                        </div>
+                        
+                        <!-- Botón de envío -->
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Mapa lateral -->
+                <div class="map-wrapper">
+                    <h3>Encuéntranos Aquí</h3>
+                    <div class="map-placeholder">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31514.542699228843!2d-80.36171!3d8.51857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca84d2cbb0001%3A0x9f2a861c0b7a0001!2sPenonomé%2C%20Panamá!5e0!3m2!1ses!2s!4v1234567890" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    
+                    <!-- Información adicional -->
+                    <div class="extra-info">
+                        <h4><i class="fas fa-question-circle"></i> ¿Prefieres Llamarnos?</h4>
+                        <p>Nuestro equipo de atención al cliente está listo para ayudarte en español e inglés.</p>
+                        <a href="tel:+50767890123" class="call-button">
+                            <i class="fas fa-phone-alt"></i> Llamar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de FAQ -->
+        <section class="faq-section">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-grid">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> ¿Cuánto tiempo antes debo reservar?</h3>
+                    <p>Recomendamos reservar con al menos 2 semanas de anticipación para garantizar disponibilidad, especialmente en temporada alta.</p>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> ¿Qué métodos de pago aceptan?</h3>
+                    <p>Aceptamos tarjetas de crédito, débito, transferencias bancarias y pagos en efectivo. También ofrecemos planes de pago.</p>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> ¿Tienen política de cancelación?</h3>
+                    <p>Sí, ofrecemos reembolso del 100% si cancelas con más de 7 días de anticipación. Consulta nuestros términos completos.</p>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <h3><i class="fas fa-question-circle"></i> ¿Los tours incluyen seguro?</h3>
+                    <p>Todos nuestros paquetes incluyen seguro de viaje básico. También ofrecemos opciones de seguro premium.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito de compras lateral -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #6b7280; padding: 2rem;">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Chatbot flotante -->
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Asistente Virtual</span>
+                <button class="close-cart" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">¡Hola! ¿Tienes alguna pregunta? Estoy aquí para ayudarte.</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button class="send-button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Footer profesional -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Descubre Panamá</h3>
+                <p style="color: #9ca3af; line-height: 1.8;">Tu puerta de entrada a las maravillas naturales y culturales del corazón de Panamá. Experiencias auténticas desde 2010.</p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="paquetes.html">Paquetes</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="juego.html">Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Penonomé, Coclé, Panamá</li>
+                    <li><i class="fas fa-phone"></i> +507 6789-0123</li>
+                    <li><i class="fas fa-envelope"></i> info@descubrepenonomé.com</li>
+                    <li><i class="fas fa-clock"></i> Lun - Dom: 7am - 9pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Suscríbete para recibir ofertas exclusivas</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Tu email" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px;">
+                    <button style="background: var(--accent); color: var(--white); border: none; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Descubre Coclé. Todos los derechos reservados. | Diseñado con ❤️ para aventureros</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="script.js"></script>
+ 
+
+</body>
+</html>

@@ -1,0 +1,2729 @@
+/* Reset básico para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS para colores y estilos globales */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary: #10b981;
+    --accent: #f59e0b;
+    --dark: #1f2937;
+    --light: #f3f4f6;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos base del body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background: var(--light);
+}
+
+/* Navbar fijo en la parte superior con colores oscuros */
+.navbar {
+    background: #2d3436;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Container del navbar con max-width */
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo principal del sitio */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Menú de navegación horizontal */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Enlaces del menú de navegación */
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Efecto hover en los enlaces del menú */
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Contenedor para menú dropdown */
+.dropdown {
+    position: relative;
+}
+
+/* Menú desplegable oculto por defecto */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--white);
+    min-width: 200px;
+    box-shadow: var(--shadow-lg);
+    border-radius: 8px;
+    top: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Enlaces dentro del dropdown */
+.dropdown-content a {
+    color: var(--dark);
+    padding: 0.8rem 1.2rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en enlaces del dropdown */
+.dropdown-content a:hover {
+    background: var(--light);
+    padding-left: 1.5rem;
+}
+
+/* Mostrar dropdown al hacer hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Icono del carrito de compras clickeable */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Badge contador del carrito */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Botón hamburguesa oculto en desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+/* Barras del menú hamburguesa */
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Animación del hamburguesa al activarse */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Sección hero con slider de imágenes */
+.hero {
+    margin-top: 70px;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenedor del slider */
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Cada slide individual */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Slide activo visible */
+.slide.active {
+    opacity: 1;
+}
+
+/* Imágenes del slider */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+/* Overlay con gradiente sobre las imágenes */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: var(--white);
+    padding: 0 4rem;
+}
+
+/* Título principal del hero */
+.slide-overlay h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 900px;
+    text-align: left;
+    animation: fadeInDown 1s ease;
+}
+
+/* Descripción del hero */
+.slide-overlay p {
+    font-size: 1.8rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+    text-align: left;
+    font-weight: 300;
+    animation: fadeInUp 1s ease;
+}
+
+/* Botón call-to-action del hero */
+.hero-button {
+    background: var(--white);
+    color: var(--primary);
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Efecto hover del botón hero */
+.hero-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Contenedor principal del contenido */
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Títulos de sección centralizados */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary);
+    position: relative;
+}
+
+/* Línea decorativa bajo los títulos */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--accent);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* Grid responsive de paquetes turísticos */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+/* Card individual de paquete */
+.package-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover en las cards */
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Carrusel de imágenes en cada paquete */
+.package-carousel {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+/* Container de imágenes del carrusel */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+/* Imágenes individuales del carrusel */
+.carousel-image {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botones de navegación del carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* Efecto hover en botones del carrusel */
+.carousel-btn:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Botón anterior del carrusel */
+.carousel-btn.prev {
+    left: 10px;
+}
+
+/* Botón siguiente del carrusel */
+.carousel-btn.next {
+    right: 10px;
+}
+
+/* Información del paquete */
+.package-info {
+    padding: 1.5rem;
+}
+
+/* Título del paquete */
+.package-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+/* Descripción del paquete */
+.package-description {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Container de características incluidas */
+.package-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Tags de características */
+.feature-tag {
+    background: var(--light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--dark);
+}
+
+/* Footer del paquete con precio y botón */
+.package-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--light);
+}
+
+/* Precio del paquete */
+.package-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Botón agregar al carrito */
+.add-to-cart-btn {
+    background: var(--secondary);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Efecto hover del botón agregar */
+.add-to-cart-btn:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+/* Modal de bienvenida */
+.welcome-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 600px;
+    text-align: center;
+    animation: slideUp 0.5s ease;
+    position: relative;
+}
+
+/* Título del modal */
+.modal-content h2 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Párrafo del modal */
+.modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #6b7280;
+}
+
+/* Botón para cerrar modal */
+.close-modal {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón cerrar */
+.close-modal:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Sidebar del carrito de compras */
+.cart-sidebar {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Carrito visible */
+.cart-sidebar.active {
+    right: 0;
+}
+
+/* Header del carrito */
+.cart-header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botón cerrar carrito */
+.close-cart {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Container de items del carrito */
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Item individual del carrito */
+.cart-item {
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Imagen del item en el carrito */
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Información del item */
+.cart-item-info {
+    flex: 1;
+}
+
+/* Título del item */
+.cart-item-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Precio del item */
+.cart-item-price {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Botón eliminar item */
+.remove-item {
+    background: #ef4444;
+    color: var(--white);
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Footer del carrito */
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 2px solid var(--light);
+}
+
+/* Total del carrito */
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Botón finalizar compra */
+.checkout-btn {
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón checkout */
+.checkout-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Sección Sobre Nosotros */
+.about-section {
+    background: var(--white);
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+}
+
+/* Grid de cards "Sobre Nosotros" */
+.about-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Card individual "Sobre Nosotros" */
+.about-card {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagen de fondo decorativa en las cards */
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* Imagen de fondo específica para cada card */
+.about-card:nth-child(1)::before {
+    background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=300&fit=crop');
+}
+
+.about-card:nth-child(2)::before {
+    background-image: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop');
+}
+
+.about-card:nth-child(3)::before {
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop');
+}
+
+.about-card:nth-child(4)::before {
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop');
+}
+
+/* Contenido de la card sobre el fondo */
+.about-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Efecto hover en las cards */
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Iconos de las cards */
+.about-card i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Formulario de contacto */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* Grupo de campo del formulario */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Etiquetas del formulario */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Inputs y textareas del formulario */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--light);
+    border-radius: 8px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Focus en los campos del formulario */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Mensajes de error del formulario */
+.error-message {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+/* Botón submit del formulario */
+.submit-btn {
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón submit */
+.submit-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Sección del juego */
+.game-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 4rem 2rem;
+    color: var(--white);
+}
+
+/* Container del juego */
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Tablero del juego en grid */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+/* Cards del juego de memoria */
+.game-card {
+    background: var(--white);
+    aspect-ratio: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+/* Efecto hover en las cards del juego */
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+/* Card volteada en el juego */
+.game-card.flipped {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Estadísticas del juego */
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+/* Container del chatbot */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Botón flotante del chat */
+.chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón chat */
+.chat-button:hover {
+    transform: scale(1.1);
+}
+
+/* Ventana del chat */
+.chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+}
+
+/* Chat visible */
+.chat-window.active {
+    display: flex;
+}
+
+/* Header del chat */
+.chat-header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Container de mensajes del chat */
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Mensaje individual del chat */
+.chat-message {
+    padding: 0.8rem;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* Mensaje del bot */
+.chat-message.bot {
+    background: var(--light);
+    align-self: flex-start;
+}
+
+/* Mensaje del usuario */
+.chat-message.user {
+    background: var(--primary);
+    color: var(--white);
+    align-self: flex-end;
+}
+
+/* Container del input del chat */
+.chat-input-container {
+    padding: 1rem;
+    border-top: 1px solid var(--light);
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Input del chat */
+.chat-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--light);
+    border-radius: 20px;
+    outline: none;
+}
+
+/* Botón enviar mensaje */
+.send-button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Footer del sitio con colores oscuros */
+.footer {
+    background: #1a1a1a;
+    color: var(--white);
+    padding: 3rem 2rem 1rem;
+}
+
+/* Contenido del footer en grid */
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Títulos de sección del footer */
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+/* Listas del footer */
+.footer-section ul {
+    list-style: none;
+}
+
+/* Items de lista del footer */
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Enlaces del footer */
+.footer-section a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en enlaces del footer */
+.footer-section a:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+/* Enlaces a redes sociales */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Copyright al final del footer */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+}
+
+/* Estilos ocultos para login (no usado) */
+.login-modal {
+    display: none;
+}
+
+.login-content {
+    display: none;
+}
+
+.admin-panel {
+    display: none;
+}
+
+/* Animación fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación fade in desde arriba */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación fade in desde abajo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación slide up */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación slide in desde la derecha */
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animación slide out hacia la derecha */
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* Media query para tablets */
+@media (max-width: 768px) {
+    /* Mostrar menú hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Menú de navegación en móviles */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: #2d3436;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        padding: 2rem 0;
+    }
+
+    /* Menú visible en móviles */
+    .nav-menu.active {
+        left: 0;
+    }
+
+    /* Ajuste de párrafo hero en tablets */
+    .slide-overlay p {
+        font-size: 1rem;
+    }
+
+    /* Carrito de ancho completo en móviles */
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    /* Grid de paquetes en una columna */
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos adicionales para páginas separadas */
+
+/* Header de páginas internas */
+.page-header {
+    margin-top: 70px;
+    height: 400px;
+    position: relative;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Header específico para cada página */
+.about-header {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)), 
+                url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.game-header {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
+                url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-header {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.9)),
+                url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay del header */
+.page-header-overlay {
+    text-align: center;
+    color: var(--white);
+    z-index: 1;
+}
+
+.page-header-overlay h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.page-header-overlay p {
+    font-size: 1.5rem;
+    opacity: 0.95;
+}
+
+/* Sección de introducción en inicio */
+.intro-section {
+    padding: 3rem 0;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+/* Grid de destacados */
+.highlights-section {
+    padding: 3rem 0;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Card de destacado */
+.highlight-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.highlight-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.highlight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.highlight-card:hover .highlight-image img {
+    transform: scale(1.1);
+}
+
+.highlight-info {
+    padding: 2rem;
+    text-align: center;
+}
+
+.highlight-info i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.highlight-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+/* Sección CTA */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background: var(--white);
+    color: var(--primary);
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Estilos para página de paquetes */
+.packages-info {
+    background: var(--light);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.info-card i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+/* Estilos para página de juego */
+.game-section-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 4rem 2rem;
+    color: var(--white);
+    min-height: 80vh;
+}
+
+.game-instructions {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cards de estadísticas mejoradas */
+.stat-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Controles del juego */
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.game-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reset-btn {
+    background: var(--white);
+    color: #667eea;
+}
+
+.hint-btn {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.game-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Leaderboard */
+.leaderboard {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.leaderboard h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.leaderboard-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 40px;
+}
+
+.player-name {
+    flex: 1;
+    font-weight: 600;
+}
+
+.score {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Estilos para página nosotros */
+.about-story {
+    padding: 3rem 0;
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.story-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #4b5563;
+    font-size: 1.1rem;
+}
+
+.story-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sección de valores */
+.values-section {
+    background: var(--light);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.value-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.value-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+/* Sección de equipo */
+.team-section {
+    padding: 3rem 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--primary);
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.member-role {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.member-bio {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* Certificaciones */
+.certifications-section {
+    background: var(--light);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cert-badge {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.cert-badge i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* Estilos para página de contacto */
+.contact-info-section {
+    padding: 3rem 0;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-info-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.info-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-icon i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.contact-info-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.contact-info-card p {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+/* Sección de formulario de contacto */
+.contact-form-section {
+    padding: 3rem 0;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+}
+
+.form-wrapper {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.form-description {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox-label {
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-top: 0.2rem;
+}
+
+/* Select del formulario */
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--light);
+    border-radius: 8px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Mapa */
+.map-wrapper {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.map-wrapper h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.map-placeholder {
+    margin-bottom: 2rem;
+}
+
+.extra-info {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.extra-info h4 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.extra-info p {
+    margin-bottom: 1.5rem;
+    color: #6b7280;
+}
+
+.call-button {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.call-button:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+/* Sección FAQ */
+.faq-section {
+    background: var(--light);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.faq-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.faq-item p {
+    color: #6b7280;
+    line-height: 1.7;
+}
+
+/* Estilos para página del carrito */
+.cart-page-header {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.9)),
+                url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.cart-page-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Sección de items del carrito */
+.cart-items-section {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.cart-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
+}
+
+.cart-section-header h2 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.clear-cart-btn {
+    background: #ef4444;
+    color: var(--white);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.clear-cart-btn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* Lista de items del carrito */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cart-page-item {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.cart-page-item:hover {
+    box-shadow: var(--shadow);
+    transform: translateX(5px);
+}
+
+.cart-page-item-image {
+    width: 150px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.cart-page-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-page-item-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.cart-page-item-description {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.cart-page-item-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cart-page-feature-tag {
+    background: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: var(--dark);
+}
+
+.cart-page-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.cart-page-item-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.remove-cart-item-btn {
+    background: #ef4444;
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.remove-cart-item-btn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* Mensaje carrito vacío */
+.empty-cart-message {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-cart-message i {
+    font-size: 5rem;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+}
+
+.empty-cart-message h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.empty-cart-message p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.continue-shopping-btn {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.continue-shopping-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Sección continuar comprando */
+.continue-shopping-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--light);
+}
+
+.continue-shopping-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.continue-shopping-link:hover {
+    gap: 1rem;
+}
+
+/* Sección de resumen */
+.cart-summary-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cart-summary-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 90px;
+}
+
+.cart-summary-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Filas del resumen */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.discount-row {
+    color: var(--secondary);
+}
+
+.summary-divider {
+    height: 2px;
+    background: var(--light);
+    margin: 1rem 0;
+}
+
+.total-row {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    padding: 1rem 0;
+}
+
+/* Sección de cupón */
+.coupon-section {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.coupon-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid var(--light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.coupon-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.apply-coupon-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.apply-coupon-btn:hover {
+    background: #d97706;
+    transform: scale(1.05);
+}
+
+/* Botón de checkout de página */
+.checkout-page-btn {
+    width: 100%;
+    background: var(--secondary);
+    color: var(--white);
+    border: none;
+    padding: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.checkout-page-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+.checkout-page-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Métodos de pago */
+.payment-methods {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--light);
+}
+
+.payment-methods p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+/* Garantía */
+.guarantee-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.guarantee-section i {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.guarantee-section strong {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+}
+
+.guarantee-section p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Info box */
+.info-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.info-box i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.info-box h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-box ul li {
+    padding: 0.5rem 0;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-box ul li:before {
+    content: "✓";
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+/* Responsive para carrito */
+@media (max-width: 1024px) {
+    .cart-page-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-summary-card {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-page-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-page-item-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .cart-page-item-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .cart-section-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+} de título hero en tablets */
+    .slide-overlay h1 {
+        font-size: 2rem;
+    }
+
+    /* Ajuste
+   /* ============================
+      ESTILO LOGIN COMPLETO
+   ============================ */
+
+/* Fondo general del login */
+body.login-page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    background: url('https://media.admagazine.com/photos/62a39b5225cb170f9e0fbf21/16:9/w_2560%2Cc_limit/Panama-Campaign.jpg')
+        no-repeat center center/cover;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Para que el fondo se mantenga bien en móviles */
+    background-attachment: fixed;
+}
+
+/* Caja blanca centrada */
+.login-container {
+    width: 350px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+
+    /* Para hacerla flexible */
+    max-width: 90%;
+}
+
+.login-container h2 {
+    margin-bottom: 1.5rem;
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+/* Inputs */
+.login-container input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.login-container input:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+}
+
+/* Botón */
+.login-container button {
+    width: 100%;
+    padding: 0.9rem;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-container button:hover {
+    background: #1d4ed8;
+}
+
+/* Error */
+#mensaje-error {
+    margin-top: 10px;
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================
+      RESPONSIVE
+   ============================ */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+    body.login-page {
+        background-size: cover;
+    }
+
+    .login-container {
+        width: 80%;
+        padding: 1.8rem;
+    }
+
+    .login-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .login-container button {
+        font-size: 1rem;
+    }
+}
+
+/* Teléfonos */
+@media (max-width: 480px) {
+    body.login-page {
+        background-position: center;
+    }
+
+    .login-container {
+        width: 90%;
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .login-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .login-container input {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    .login-container button {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}
+/* ----- Barra superior oscura del login ----- */
+.login-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: #1f2933;     /* gris oscuro como la imagen */
+    display: flex;
+    align-items: center;
+    z-index: 20;
+}
+
+.login-topbar-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.login-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* icono del logo */
+.login-logo i {
+    font-size: 1.1rem;
+}
+/* ===================================================
+   RESPONSIVE FIX GLOBAL — NO CAMBIA DISEÑO ORIGINAL
+=====================================================*/
+
+/* Ajuste general de imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== HERO / SLIDER ===== */
+@media (max-width: 768px) {
+    .hero {
+        height: 450px; /* antes 700px */
+    }
+
+    .slide-overlay h1 {
+        font-size: 2.2rem;
+        max-width: 90%;
+    }
+
+    .slide-overlay p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .slide-overlay {
+        padding: 0 1.5rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 380px;
+    }
+
+    .slide-overlay h1 {
+        font-size: 1.8rem;
+    }
+
+    .slide-overlay p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== NAVBAR RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* evita que el contenido quede debajo del navbar */
+    }
+
+    .nav-menu {
+        width: 100%;
+        left: -100%;
+        text-align: center;
+        background: #2d3436;
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-link {
+        padding: 1rem 0;
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== PAQUETES ===== */
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .package-carousel {
+        height: 200px;
+    }
+}
+
+/* ===== SOBRE NOSOTROS ===== */
+@media (max-width: 900px) {
+    .story-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .story-image {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* ===== VALORES / EQUIPO ===== */
+@media (max-width: 768px) {
+    .values-grid,
+    .team-grid,
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== CONTACTO ===== */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ===== FORMULARIO DE CONTACTO ===== */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== JUEGO ===== */
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(2, 1fr); /* antes 4 */
+        gap: 0.7rem;
+    }
+}
+
+/* ===== CHATBOT ===== */
+@media (max-width: 480px) {
+    .chat-window {
+        width: 90%;
+        right: 5%;
+        height: 400px;
+    }
+}
+
+/* ===== CARRITO SIDEBAR ===== */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+/* ===== CARRITO PAGE ===== */
+@media (max-width: 1024px) {
+    .cart-page-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary-card {
+        position: static;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-page-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .cart-page-item-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .cart-page-item-actions {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ===== FOOTER ===== */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* ===== HEADERS INTERNOS ===== */
+@media (max-width: 768px) {
+    .page-header {
+        height: 250px;
+    }
+
+    .page-header-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .page-header-overlay p {
+        font-size: 1rem;
+    }
+}
+
+/* ===== LOGIN ===== */
+@media (max-width: 480px) {
+    body.login-page {
+        background-attachment: scroll; /* arregla bug de Android */
+    }
+}
+
+/* ===== EXTRAS ===== */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================
+   FIX PARA EL JUEGO EN MÓVILES
+==============================*/
+
+@media (max-width: 600px) {
+
+    /* Tablero: 2 columnas en móvil */
+    .game-board {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 100% !important;
+        padding: 0 1rem;
+    }
+
+    /* Tarjetas más pequeñas */
+    .game-card {
+        aspect-ratio: 1;
+        font-size: 1.5rem !important;
+    }
+
+    /* Ajusta las tarjetas si aún se salen */
+    .game-section,
+    .game-container {
+        overflow-x: hidden !important;
+    }
+
+    /* Evitar desbordamiento invisible */
+    body, html {
+        overflow-x: hidden !important;
+    }
+}
+
+/* ==== FIX GENERAL PARA QUE NO HAYA SCROLL HORIZONTAL ==== */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Por si acaso algo del juego o el footer se sale, también los forzamos */
+.game-section-page,
+.page-header,
+.footer {
+    overflow-x: hidden;
+}
+
+

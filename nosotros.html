@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Descubre Penonomé</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar responsive con menú hamburguesa -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo principal - enlace a inicio -->
+            <a href="index.html" class="logo">
+                <i class="fas fa-mountain"></i>
+                Descubre Coclé
+            </a>
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="paquetes.html" class="nav-link">Paquetes</a></li>
+                <li><a href="juego.html" class="nav-link">Juego</a></li>
+                <li><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="#" id="logoutBtn" class="nav-link">Cerrar sesión</a></li>
+                <!-- Icono de carrito con contador -->
+                <li>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+            <!-- Botón hamburguesa para móviles -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header de página -->
+    <section class="page-header about-header">
+        <div class="page-header-overlay">
+            <h1>Sobre Nosotros</h1>
+            <p>Más de 15 años creando experiencias inolvidables en Panamá</p>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Sección de historia -->
+        <section class="about-story">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 class="section-title">Nuestra Historia</h2>
+                    <p>Fundada en 2010, <strong>Descubre Penonomé</strong> nació del amor por las maravillas naturales y culturales de Coclé. Comenzamos como un pequeño grupo de guías locales apasionados por mostrar al mundo los tesoros escondidos de nuestra región.</p>
+                    <p>Con el paso de los años, hemos crecido hasta convertirnos en una de las agencias de turismo más reconocidas de Panamá, manteniendo siempre nuestro compromiso con la sostenibilidad y el respeto por las comunidades locales.</p>
+                    <p>Hoy, más de 50,000 viajeros de todo el mundo han confiado en nosotros para descubrir desde las místicas montañas del Valle de Antón hasta las playas vírgenes del Pacífico.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=600&fit=crop" alt="Equipo Descubre Penonomé">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Por qué elegirnos" con Grid Layout -->
+        <section class="about-section">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <div class="about-grid">
+                <!-- Card 1: Experiencia -->
+                <div class="about-card">
+                    <i class="fas fa-award"></i>
+                    <h3>15 Años de Experiencia</h3>
+                    <p>Expertos en turismo sostenible y experiencias auténticas en Coclé desde 2010. Conocemos cada rincón de nuestra hermosa región.</p>
+                </div>
+                <!-- Card 2: Clientes satisfechos -->
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>+50,000 Viajeros Felices</h3>
+                    <p>Miles de aventureros han confiado en nosotros para descubrir lo mejor de Panamá. Sus testimonios nos motivan cada día.</p>
+                </div>
+                <!-- Card 3: Sostenibilidad -->
+                <div class="about-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Turismo Sostenible</h3>
+                    <p>Comprometidos con el medio ambiente y las comunidades locales en cada tour. Dejamos una huella positiva en cada destino.</p>
+                </div>
+                <!-- Card 4: Soporte -->
+                <div class="about-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Soporte 24/7</h3>
+                    <p>Asistencia en todo momento durante tu aventura, porque tu seguridad es primero. Estamos contigo en cada paso del camino.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de valores -->
+        <section class="values-section">
+            <h2 class="section-title">Nuestros Valores</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🌍</div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Promovemos el turismo responsable que protege el medio ambiente y apoya a las comunidades locales.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">❤️</div>
+                    <h3>Pasión</h3>
+                    <p>Amamos lo que hacemos y eso se refleja en cada experiencia que creamos para nuestros clientes.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Confianza</h3>
+                    <p>Construimos relaciones duraderas basadas en la transparencia y el compromiso con la excelencia.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">✨</div>
+                    <h3>Autenticidad</h3>
+                    <p>Ofrecemos experiencias genuinas que conectan a los viajeros con la verdadera esencia de Panamá.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección del equipo -->
+        <section class="team-section">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <div class="team-grid">
+                <!-- Miembro 1 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Director">
+                    </div>
+                    <h3>Carlos Mendoza</h3>
+                    <p class="member-role">Director General</p>
+                    <p class="member-bio">15 años liderando el turismo sostenible en Panamá</p>
+                </div>
+                <!-- Miembro 2 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Coordinadora">
+                    </div>
+                    <h3>María González</h3>
+                    <p class="member-role">Coordinadora de Tours</p>
+                    <p class="member-bio">Experta en diseñar experiencias memorables</p>
+                </div>
+                <!-- Miembro 3 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Guía">
+                    </div>
+                    <h3>Roberto Sánchez</h3>
+                    <p class="member-role">Guía Principal</p>
+                    <p class="member-bio">Conoce cada sendero y historia de Coclé</p>
+                </div>
+                <!-- Miembro 4 -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Especialista">
+                    </div>
+                    <h3>Ana Torres</h3>
+                    <p class="member-role">Especialista en Ecoturismo</p>
+                    <p class="member-bio">Bióloga y defensora del medio ambiente</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de certificaciones -->
+        <section class="certifications-section">
+            <h2 class="section-title">Certificaciones y Reconocimientos</h2>
+            <div class="certifications-grid">
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <p>Certificación de Turismo Sostenible</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-medal"></i>
+                    <p>Premio Excelencia Turística 2023</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-star"></i>
+                    <p>5 Estrellas en TripAdvisor</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-ribbon"></i>
+                    <p>Mejor Agencia de Ecoturismo</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito de compras lateral -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #6b7280; padding: 2rem;">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Chatbot flotante -->
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Asistente Virtual</span>
+                <button class="close-cart" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">¿Quieres saber más sobre nosotros? ¡Pregúntame!</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje...">
+                <button class="send-button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Footer profesional -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Descubre Coclé</h3>
+                <p style="color: #9ca3af; line-height: 1.8;">Tu puerta de entrada a las maravillas naturales y culturales del corazón de Panamá. Experiencias auténticas desde 2010.</p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="paquetes.html">Paquetes</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="juego.html">Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Penonomé, Coclé, Panamá</li>
+                    <li><i class="fas fa-phone"></i> +507 6789-0123</li>
+                    <li><i class="fas fa-envelope"></i> info@descubrepenonomé.com</li>
+                    <li><i class="fas fa-clock"></i> Lun - Dom: 7am - 9pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Suscríbete para recibir ofertas exclusivas</p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Tu email" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px;">
+                    <button style="background: var(--accent); color: var(--white); border: none; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Descubre Coclé. Todos los derechos reservados. | Diseñado con ❤️ para aventureros</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="script.js"></script>
+    
+
+</body>
+</html>
